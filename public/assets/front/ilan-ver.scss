@@ -1,0 +1,235 @@
+.adim1-main{
+    padding-left: 125px!important;
+    padding-right: 125px!important;
+}
+.adim1-content{
+    border: 1px solid #DBDBDB;
+    margin-top: 100px;
+    background-color: white;
+    height: 500px;
+    margin-bottom: 100px;
+    padding-left: 20px;
+    padding-top: 25px;
+    padding-right: 20px;
+    >h5{
+        margin-left: 15px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+.adim1-content-inner{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 25px;
+    padding-left: 2px;
+    >a{
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.item{
+    flex: 0 0 auto;
+    margin: 10px;
+    width: 236px;
+    height: 145px;
+    border-radius: 8px;
+    box-shadow: 0 0 3px 0 rgba(0,0,0,0.5);
+}
+.item:hover{
+    box-shadow: 0 0 15px 0 rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+.item-banner{
+    width: 100%;
+    height: 10px;
+    border-radius: 8px 8px 0 0;
+    background-color: #ffb800;
+}
+.item-content{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    >div{
+        display: flex;
+        width: 100px;
+        place-items: center;
+        justify-content: center;
+        >h5{
+            justify-content: center;
+            place-items: center;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.icon-holder{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    place-items: center;
+    background-color: #ffb800;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    margin-bottom: 5px;
+    >i{
+        color: white;
+    }
+}
+
+.adim2-table{
+    display: flex;
+    width: 220px;
+    overflow-y: scroll;
+    height: 325px;
+    margin-right: 55px;
+    margin-top: 20px;
+    margin-left: -40px;
+    padding-left: 5px;
+    padding-top: 10px;
+    border-radius: 5px;
+    background-color: #E5F0FF;
+    border: 1px solid #DBDBDB;
+    >ul{
+        width: 100%;
+        padding-left: 10px !important;
+        list-style-type: none;
+        >li{
+            margin-bottom: 2px;
+            >a{
+                color: black;
+                text-decoration: none;
+            }
+            >a:hover{
+                color: #ff2b39;
+            }
+        }
+    }
+}
+.adim2-table::-webkit-scrollbar{
+    width: 6px;
+}
+.adim2-table::-webkit-scrollbar-thumb{
+    background-color: #737373; /* Webkit için scroll çubuğu rengi */
+    border-radius: 50px!important;
+
+}
+
+.devam{
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.adim3-main{
+    padding-top: 50px !important;
+    padding-left: 80px!important;
+    padding-right: 80px!important;
+    >h5{
+        margin-left: 3px;
+        margin-bottom: 10px;
+        font-size: 26px;
+        font-weight: 700;
+    }
+}
+
+.admin3-content{
+    background-color: white;
+    >form{
+        padding: 25px;
+    }
+}
+
+.form-title{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #DBDBDB;
+    >div{
+        >input[type="text"]{
+            width: 100%;
+            height: 40px;
+            border: 1px solid #DEDEDE !important;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        >input[type="text"]:focus{
+            outline: none !important;
+            border: 2px solid #7bb5f4 !important;
+        }
+        >h6{
+            font-size: 15px;
+            font-weight: 500;
+            color: #333333;
+            margin-left: 2px;
+            margin-bottom: 8px;
+        }
+        >textarea{
+            width: 100%;
+            margin-bottom: 25px;
+            border: 1px solid #DEDEDE !important;
+        }
+        >textarea:focus{
+            outline: none!important;
+            border: 2px solid #7bb5f4 !important;
+        }
+        >input[type="number"]{
+            text-align: center;
+            width: 40%;
+            height: 40px;
+            border: 1px solid #DEDEDE !important;
+            border-radius: 5px;
+            margin-bottom: 25px;
+        }
+        >input[type="number"]:focus{
+            outline: none !important;
+            border: 2px solid #7bb5f4 !important;
+        }
+        /* Okları gizleme */
+        >input[type="number"]::-webkit-inner-spin-button,
+        >input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        >input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    }
+}
+.form-main{
+    margin-top: 15px;
+    >h6{
+        font-size: 15px;
+        font-weight: 500;
+        color: #333333;
+    }
+    >input{
+        width: 40%;
+        height: 40px;
+        border: 1px solid #DEDEDE !important;
+        border-radius: 5px;
+        margin-bottom: 25px;
+    }
+    >input:focus{
+        outline: none !important;
+        border: 2px solid #7bb5f4 !important;
+    }
+    >select{
+        width: 40%;
+        height: 40px;
+        border: 1px solid #DEDEDE !important;
+        border-radius: 5px;
+        margin-bottom: 25px;
+    }
+    >select:focus{
+        outline: none !important;
+        border: 2px solid #7bb5f4 !important;
+    }
+
+}

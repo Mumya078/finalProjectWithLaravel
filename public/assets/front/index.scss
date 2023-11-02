@@ -1,0 +1,54 @@
+.main{
+    >div{
+        display: flex;
+        flex-direction: column;
+        float: left;
+        >h5{
+            margin-left: 5px;
+            margin-top: 5px;
+            width: 100%;
+            height: 25px;
+            border-bottom: 1px solid #E6E6E6;
+            font-size: 18px;
+        }
+    }
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 7px;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    & >div{
+        min-width: 150px;
+        max-width: 100%;
+        height: 150px;
+        flex: 0 0 auto;
+    }
+}
+.item{
+    display: flex;
+    color: #333333;
+    flex-direction: column;
+    text-decoration: none;
+    >img{
+        width: 150px;
+        height: 110px;
+        border: 1px solid #E6E6E6;
+    }
+    >h4{
+        max-width: 140px;
+        font-size: 16px;
+        text-align: center;
+        padding-left: 10px;
+        padding-top: 2px;
+        white-space: nowrap; /* Metni iki satırda tutar */
+        overflow: hidden; /* Taşan metni gizler */
+        text-overflow: ellipsis; /* Taşan metni üç nokta ile gösterir */
+    }
+}
+.item:hover{
+    text-decoration: underline;
+}
