@@ -4,7 +4,7 @@
             <ul>
                 <div class="navbar-headers">
                     <div><img src="/assets/img/car-icon.png"></div>
-                    <h4><a href="javascript:void(0)">Otomobil</a>(1000)</h4>
+                    <h4><a href="/category">Otomobil</a>(1000)</h4>
                 </div>
                 <li>
                     <h6><a href="javascript:void(0)">SUV</a>(500)</h6>

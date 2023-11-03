@@ -24,4 +24,8 @@ class HomeController extends Controller
     public function adim3(){
         return view("front.ilan-ver.adim3");
     }
+
+    public function category(){
+        return view("front.category");
+    }
 }

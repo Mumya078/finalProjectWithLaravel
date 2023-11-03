@@ -27,6 +27,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/productdetail', [App\Http\Controllers\HomeController::class, 'productdetail'])->name('productdetail');
+Route::get('/category',[HomeController::class,'category'])->name('category');
 Route::get('/ilan-ver/adim1',[HomeController::class,'adim1'])->name('adim1');
 Route::get('/ilan-ver/adim2',[HomeController::class,'adim2'])->name('adim2');
 Route::get('/ilan-ver/adim3',[HomeController::class,'adim3'])->name('adim3');
