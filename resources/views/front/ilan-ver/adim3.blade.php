@@ -8,6 +8,12 @@
         <div class="container">
             <div class="row">
                 <div class="adim3-main">
+                    <h5>Kategori</h5>
+                    <div class="admin3-kategori-content">
+                        sea
+                    </div>
+                </div>
+                <div class="adim3-main">
                     <h5>
                         İlan Detayları
                     </h5>

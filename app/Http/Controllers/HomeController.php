@@ -5,30 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category as Category;
+use App\Models\Products as Product;
 class HomeController extends Controller
 {
+    public static function maincategorylist(){
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
     public function index(){
         $categorydata= Category::all();
+        $productdata = Product::all();
         return view("front.index",[
-            'categorydata'=> $categorydata
+            'categorydata'=> $categorydata,
+            'productdata' => $productdata
         ]);
-    }
-    public function productdetail(){
-        return view("front.productdetail");
-    }
-
-    public function adim1(){
-        return view("front.ilan-ver.adim1");
-    }
-
-    public function adim2(){
-        return view("front.ilan-ver.adim2");
-    }
-    public function adim3(){
-        return view("front.ilan-ver.adim3");
-    }
-
-    public function category(){
-        return view("front.category");
     }
 }

@@ -11,92 +11,25 @@
                     <div class="adim1-content">
                         <h5>Adım Adım Kategori Seç</h5>
                         <div class=" adim1-content-inner">
-                            <a href="/ilan-ver/adim2">
-                                <div class="item">
-                                    <div class="item-banner">
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="d-flex flex-column justify-content-center text-center">
-                                            <div class="icon-holder">
-                                                <i class="fa-solid fa-house"></i>
-                                            </div>
-                                            <h5>Emlak</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
 
-                            <a href="/ilan-ver/adim2">
-                                <div class="item">
-                                    <div class="item-banner" style="background-color: red">
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="d-flex flex-column justify-content-center text-center">
-                                            <div class="icon-holder" style="background-color: red">
-                                                <i class="fa-solid fa-car"></i>
+                            @foreach($categorydata as $rs)
+                                @if( $rs->parent_id == 0)
+                                    <a href="/ilan-ver/adim2">
+                                        <div class="item">
+                                            <div class="item-banner" style="background-color:{{$rs->color}}">
                                             </div>
-                                            <h5>Otomobil</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <a href="/home">
-                                <div class="item">
-                                    <div class="item-banner">
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="d-flex flex-column justify-content-center text-center">
-                                            <div class="icon-holder">
-                                                <i class="fa-solid fa-house"></i>
+                                            <div class="item-content">
+                                                <div class="d-flex flex-column justify-content-center text-center">
+                                                    <div class="icon-holder" style="background-color: {{$rs->color}}">
+                                                        <i class="fa-solid {{$rs->image}}"></i>
+                                                    </div>
+                                                    <h5>{{$rs->title}}</h5>
+                                                </div>
                                             </div>
-                                            <h5>Emlak</h5>
                                         </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/home">
-                                <div class="item">
-                                    <div class="item-banner">
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="d-flex flex-column justify-content-center text-center">
-                                            <div class="icon-holder">
-                                                <i class="fa-solid fa-house"></i>
-                                            </div>
-                                            <h5>Emlak</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/home">
-                                <div class="item">
-                                    <div class="item-banner">
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="d-flex flex-column justify-content-center text-center">
-                                            <div class="icon-holder">
-                                                <i class="fa-solid fa-house"></i>
-                                            </div>
-                                            <h5>Emlak</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="/home">
-                                <div class="item">
-                                    <div class="item-banner">
-                                    </div>
-                                    <div class="item-content">
-                                        <div class="d-flex flex-column justify-content-center text-center">
-                                            <div class="icon-holder">
-                                                <i class="fa-solid fa-house"></i>
-                                            </div>
-                                            <h5>Emlak</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
+                                    </a>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

@@ -15,78 +15,14 @@
                <div>
                    <h5>Anasayfa Vitrini</h5>
                    <div class="content">
+                       @foreach($productdata as $rs)
                        <div class="d-flex">
-                           <a href="/productdetail" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
+                           <a href="{{route('productdetail',['id'=>$rs->id])}}" class="item">
+                               <img src="{{$rs->image}}">
+                               <h4>{{$rs->title}}</h4>
                            </a>
                        </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-                           <a href="javascript:void(0)" class="item">
-                               <img src="/assets/img/car.png">
-                               <h4>Acr auto 25-2023 model araba</h4>
-                           </a>
-                       </div>
-                       <div class="d-flex">
-
-                       </div>
-                       <div class="d-flex">
-
-                       </div>
+                       @endforeach
                    </div>
                </div>
             </div>
