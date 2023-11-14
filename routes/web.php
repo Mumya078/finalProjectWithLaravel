@@ -17,7 +17,7 @@ use App\Http\Controllers\ProductController as ProductController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
 });
 Route::get('/home',function (){
     return view('/index');
@@ -26,6 +26,7 @@ Route::get('/home',function (){
 Route::get('/anasayfa',[HomeController::class, "index"]);
 
 Auth::routes();
+Route::get('/login',[HomeController::class,'login'])->name('login');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');

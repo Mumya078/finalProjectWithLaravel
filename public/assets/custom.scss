@@ -80,6 +80,20 @@
         margin-left: 10px;
     }
 }
+.header-profile{
+    display: flex;
+    margin-left: 320px;
+    width: 300px;
+    height: 40px;
+    place-items: center;
+    color: white;
+    >a{
+        width: 135px;
+        font-weight: 400;
+        font-size: 22px;
+        color: white;
+    }
+}
 /* NAVBAR START */
 
 .navbar-main{

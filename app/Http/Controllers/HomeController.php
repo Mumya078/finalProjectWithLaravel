@@ -19,4 +19,8 @@ class HomeController extends Controller
             'productdata' => $productdata
         ]);
     }
+
+    public function login(){
+        return view("auth.login");
+    }
 }
