@@ -27,6 +27,7 @@ Route::get('/anasayfa',[HomeController::class, "index"]);
 
 Auth::routes();
 Route::get('/login',[HomeController::class,'login'])->name('login');
+Route::get('/logout',[HomeController::class,'logout'])->name('logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');

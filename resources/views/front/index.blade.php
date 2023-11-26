@@ -1,6 +1,7 @@
 <link href="{{asset('/assets/custom.scss')}}" rel="stylesheet">
 <link href="{{asset('/assets/front/index.scss')}}" rel="stylesheet">
 <link href="{{asset('/node_modules/bootstrap/scss/bootstrap/scss')}}" rel="stylesheet">
+
 @extends("layouts.front.frontbase")
 
 @section("content")

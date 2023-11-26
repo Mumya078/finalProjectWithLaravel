@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category as Category;
 use App\Models\Products as Product;
+use Illuminate\Support\Facades\Auth;
+
 class HomeController extends Controller
 {
     public static function maincategorylist(){
@@ -22,5 +24,14 @@ class HomeController extends Controller
 
     public function login(){
         return view("auth.login");
+    }
+    public function logout(){
+        Auth::logout();
+        $categorydata= Category::all();
+        $productdata = Product::all();
+        return view("front.index",[
+            'categorydata'=> $categorydata,
+            'productdata' => $productdata
+        ]);
     }
 }

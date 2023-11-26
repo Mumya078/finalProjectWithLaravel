@@ -87,6 +87,14 @@
     height: 40px;
     place-items: center;
     color: white;
+    >div{
+        margin-right: 25px;
+        >a{
+            text-decoration: none !important;
+            cursor: pointer;
+            color: white;
+        }
+    }
     >a{
         width: 135px;
         font-weight: 400;
@@ -164,7 +172,7 @@
 .footer{
     background-color: #F9F9F9;
     width: auto;
-    height: 300px;
+    height: 220px;
     border-top: 1px solid #dfdfdf;
 }
 .footer-menu{

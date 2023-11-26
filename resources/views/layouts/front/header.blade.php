@@ -14,9 +14,19 @@
         @endguest
         @auth
             <div class="header-profile">
-                <a>{{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                <div class="dropdown">
+                    <a class=" dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{\Illuminate\Support\Facades\Auth::user()->name}}
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Profil</a></li>
+                        <li><a class="dropdown-item" href="#">İlanlarım</a></li>
+                        <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
+                    </ul>
+                </div>
                 <a href="{{route('adim1')}}"><button class="btn btn-sm btn-primary">Ücretsiz İlan ver</button></a>
             </div>
         @endauth
     </div>
 </div>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
