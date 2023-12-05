@@ -19,11 +19,12 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->float('price')->nullable();
             $table->string('color')->nullable();
+            $table->string('category')->nullable();
             $table->string('model')->nullable();
             $table->string('adress')->nullable();
             $table->integer('KM')->nullable();
             $table->integer('HP')->nullable();
-            $table->integer('Year')->nullable();
+            $table->string('year')->nullable();
             $table->boolean('trade')->nullable();
             $table->timestamps();
         });

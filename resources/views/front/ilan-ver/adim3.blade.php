@@ -10,7 +10,7 @@
                 <div class="adim3-main">
                     <h5>Kategori</h5>
                     <div class="admin3-kategori-content">
-                        sea
+                        {{$cat->title}} / {{$type->title}} / {{$model->title}} / {{$year->title}}
                     </div>
                 </div>
                 <div class="adim3-main">
@@ -18,40 +18,46 @@
                         İlan Detayları
                     </h5>
                     <div class="admin3-content">
-                        <form>
+                        <form action="/ilan-ver/adim3/store" method="post">
+                            @csrf
                             <div class="form-title">
                                 <div>
                                     <h6>İlan Başlığı</h6>
-                                    <input type="text">
+                                    <input type="text" name="title">
                                 </div>
                                 <div>
                                     <h6>Açıklama</h6>
-                                    <textarea type="input"></textarea>
+                                    <textarea type="input" name="desc"></textarea>
                                 </div>
                                 <div>
                                     <h6>Fiyat</h6>
-                                    <input type="number"> TL
+                                    <input type="number" name="price"> TL
                                 </div>
                             </div>
                             <div class="form-main">
                                 <h6>KM</h6>
-                                <input type="text">
+                                <input type="text" name="KM">
                                 <h6>Renk</h6>
-                                <select>
-                                    <option>Seçiniz</option>
-                                    <option>Kırmızı</option>
-                                    <option>Mavi</option>
-                                    <option>Gri</option>
-                                    <option>Bej</option>
-                                    <option>Turkuaz</option>
-                                    <option>Sarı</option>
+                                <select name="color">
+                                    <option value="">Seçiniz</option>
+                                    <option value="kırmızı">Kırmızı</option>
+                                    <option value="mavi">Mavi</option>
+                                    <option value="gri">Gri</option>
+                                    <option value="bej">Bej</option>
+                                    <option value="turkuaz">Turkuaz</option>
+                                    <option value="sarı">Sarı</option>
                                 </select>
                                 <h6>Takas</h6>
-                                <select>
+                                <select name="trade">
                                     <option>Seçiniz</option>
-                                    <option>Evet</option>
-                                    <option>Hayır</option>
+                                    <option value="{{true}}">Evet</option>
+                                    <option value="{{false}}">Hayır</option>
                                 </select>
+                            </div>
+                            <div class="devam">
+                                <button class="btn btn-primary" type="submit">
+                                    Devam
+                                </button>
                             </div>
                         </form>
                     </div>

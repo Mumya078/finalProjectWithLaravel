@@ -17,19 +17,6 @@ class CategoryController extends Controller
             'categorydata'=> $categorydata
         ]);
     }
-    public function adim1(){
-        $categorydata= Category::all();
-        return view("front.ilan-ver.adim1",[
-            'categorydata' => $categorydata
-        ]);
-    }
-
-    public function adim2(){
-        return view("front.ilan-ver.adim2");
-    }
-    public function adim3(){
-        return view("front.ilan-ver.adim3");
-    }
 
     public function category(){
         return view("front.category");
