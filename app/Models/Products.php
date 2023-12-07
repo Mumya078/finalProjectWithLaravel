@@ -13,4 +13,8 @@ class Products extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function images(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Image::class);
+    }
 }

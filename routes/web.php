@@ -52,3 +52,7 @@ Route::get('/ilan-ver/adim3',[AdvertController::class,'adim3'])->name('adim3');
 Route::post('/ilan-ver/adim3/store',[AdvertController::class,'adim3store'])->name('adim3store');
 
 
+
+
+/****************************************** ADMİM PANEL ROUTES *******************************************************/
+

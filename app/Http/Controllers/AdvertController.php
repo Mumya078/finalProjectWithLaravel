@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category as Category;
+use App\Models\Image;
 use App\Models\Products;
 use Illuminate\Http\Request;
 
@@ -77,13 +78,25 @@ class AdvertController extends Controller
 
     public function adim3store(Request $request){
         $data = new Products();
+        // Session'dan kategori, tip, model ve yıl bilgilerini al
+        $category = session('cat');
+        $type = session('type');
+        $model = session('model');
+        $year = session('year');
+
+        $data->category = $category->title;
+        $data->type = $type->title;
+        $data->model = $model->title;
+        $data->year = $year->title;
         $data->title = $request->title;
-        $data->year = session('year');
+        $data->desc = $request->desc;
         $data->KM=$request->KM;
-        $data->model = session('model');
+        $data->HP = $request->HP;
+        $data->color = $request->color;
         $data->price = $request->price;
         $data->trade = $request->trade;
         $data->save();
+
 
         return redirect('/home');
 

@@ -9,7 +9,7 @@
             <div class="main">
                 <div class="content d-flex">
                     <div class="content-header justify-content-between">
-                        <h4>BASLIK BASLIK BASLIK</h4>
+                        <h4>{{$data->title}}</h4>
                         <div class="d-flex justify-content-between">
                             <a  href="javascript:void(0)">
                                 <i @class(['fa-solid','fa-sm','fa-star']) style="margin-right: 5px"></i>Favorilerime Ekle
@@ -48,37 +48,41 @@
                                 </div>
                             </div>
                             <div class="col-md-5 productinfo">
-                                <h5>975.000TL</h5>
+                                <h5>{{$data->price}}</h5>
                                 <h6>Karabük / Safranbolu / Emek </h6>
                                 <div class="d-flex">
                                     <ul>
                                         <li>
                                             <strong>İlan No</strong>
-                                            <span>02165164861</span>
+                                            <span>{{$data->id}}</span>
                                         </li>
                                         <li>
                                             <strong>İlan Tarihi</strong>
-                                            <span>29 Ekim 2023</span>
+                                            <span>{{$data->created_at}}</span>
                                         </li>
                                         <li>
                                             <strong>Kategori</strong>
-                                            <span>Otomobil</span>
+                                            <span>{{$data->category}}</span>
                                         </li>
                                         <li>
                                             <strong>Model</strong>
-                                            <span>Nissan GTR R-35</span>
+                                            <span>{{$data->model}}</span>
                                         </li>
                                         <li>
                                             <strong>Yıl</strong>
-                                            <span>2018</span>
+                                            <span>{{$data->year}}</span>
+                                        </li>
+                                        <li>
+                                            <strong>Renk</strong>
+                                            <span>{{$data->color}}</span>
                                         </li>
                                         <li>
                                             <strong>Motor Gücü</strong>
-                                            <span>200HP</span>
+                                            <span>{{$data->HP}}</span>
                                         </li>
                                         <li>
                                             <strong>KM</strong>
-                                            <span>55.000</span>
+                                            <span>{{$data->KM}}</span>
                                         </li>
                                         <li>
                                             <strong>Durumu</strong>
@@ -86,11 +90,15 @@
                                         </li>
                                         <li>
                                             <strong>Türü</strong>
-                                            <span>Spor</span>
+                                            <span>{{$data->type}}</span>
                                         </li>
                                         <li>
                                             <strong>Takas</strong>
-                                            <span>Evet</span>
+                                            <span>@if($data->trade == true)
+                                                      Evet
+                                                @else
+                                                      Hayır
+                                            @endif</span>
                                         </li>
                                     </ul>
                                 </div>

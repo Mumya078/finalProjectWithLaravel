@@ -13,19 +13,21 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->nullable();
-            $table->foreignId('user_id')->nullable();
-            $table->string('title')->nullable();
-            $table->string('image')->nullable();
-            $table->float('price')->nullable();
-            $table->string('color')->nullable();
-            $table->string('category')->nullable();
-            $table->string('model')->nullable();
-            $table->string('adress')->nullable();
-            $table->integer('KM')->nullable();
-            $table->integer('HP')->nullable();
-            $table->string('year')->nullable();
-            $table->boolean('trade')->nullable();
+            $table->foreignId('category_id')->nullable(); //auto
+            $table->foreignId('user_id')->nullable(); //auto
+            $table->string('category')->nullable(); //session
+            $table->string('year')->nullable(); //session
+            $table->string('model')->nullable(); //session
+            $table->string('type')->nullable(); //session
+            $table->string('title')->nullable(); //form request
+            $table->string('desc')->nullable(); //form request
+            $table->string('color')->nullable(); //form request
+            $table->integer('KM')->nullable(); //form request
+            $table->integer('HP')->nullable(); //form request
+            $table->float('price')->nullable(); //form request
+            $table->boolean('trade')->nullable(); //form request
+            $table->string('image')->nullable(); //image
+            $table->string('adress')->nullable(); //user
             $table->timestamps();
         });
     }

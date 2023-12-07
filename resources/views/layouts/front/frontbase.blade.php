@@ -21,6 +21,7 @@
 @yield("content")
 
 @include("layouts.front.footer")
+
 </body>
 
 </html>

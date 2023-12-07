@@ -18,7 +18,7 @@
                         İlan Detayları
                     </h5>
                     <div class="admin3-content">
-                        <form action="/ilan-ver/adim3/store" method="post">
+                        <form action="/ilan-ver/adim3/store" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-title">
                                 <div>
@@ -37,6 +37,8 @@
                             <div class="form-main">
                                 <h6>KM</h6>
                                 <input type="text" name="KM">
+                                <h6>HP</h6>
+                                <input type="text" name="HP">
                                 <h6>Renk</h6>
                                 <select name="color">
                                     <option value="">Seçiniz</option>
