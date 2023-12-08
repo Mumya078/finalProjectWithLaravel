@@ -12,15 +12,35 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link href="{{asset('/assets/custom.scss')}}" rel="stylesheet">
+
+    <link href="{{asset('/assets/admin/css/adminlte.css')}}" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="{{asset('/assets/admin/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{asset('/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{asset('/assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{asset('/assets/admin/js/adminlte.js')}}"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="{{asset('/assets/admin/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
+    <script src="{{asset('/assets/admin/plugins/raphael/raphael.min.js')}}"></script>
+    <script src="{{asset('/assets/admin/plugins/jquery-mapael/jquery.mapael.min.js')}}"></script>
+    <script src="{{asset('/assets/admin/plugins/jquery-mapael/maps/usa_states.min.js')}}"></script>
+    <!-- ChartJS -->
+    <script src="{{asset('/assets/admin/plugins/chart.js/Chart.min.js')}}"></script>
     <title>FinalProject</title>
 </head>
 <body>
-@include("layouts.front.header")
+<div class="wrapper">
+    @include("layouts.admin.header")
+    @include("layouts.admin.sidebar")
 
-@yield("content")
+    @yield("content")
 
-
+</div>
 </body>
 
 </html>

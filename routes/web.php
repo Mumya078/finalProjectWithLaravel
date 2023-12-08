@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminPanelController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController as HomeController;
 use App\Http\Controllers\CategoryController as CategoryController;
@@ -55,4 +56,8 @@ Route::post('/ilan-ver/adim3/store',[AdvertController::class,'adim3store'])->nam
 
 
 /****************************************** ADMİM PANEL ROUTES *******************************************************/
+Route::get('/admin',[AdminPanelController::class,'index'])->name('admin');
+Route::get('/admin/category',[AdminPanelController::class,'category'])->name('category');
+Route::post('/admin/category/store',[AdminPanelController::class,'adminstorecategory'])->name('adminstorecategory');
+
 
