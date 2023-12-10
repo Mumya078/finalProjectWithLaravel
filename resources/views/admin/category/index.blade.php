@@ -84,7 +84,7 @@
                                                                                                                 <tr>
                                                                                                                     <td>
                                                                                                                         {{$rs4->title}}
-                                                                                                                        <a class="btn btn-danger btn-sm float-right">
+                                                                                                                        <a class="btn btn-danger btn-sm float-right" href="/admin/category/delete/{{$rs4->id}}">
                                                                                                                             Delete
                                                                                                                         </a>
                                                                                                                     </td>

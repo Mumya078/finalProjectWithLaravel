@@ -83,7 +83,6 @@ class AdvertController extends Controller
         $type = session('type');
         $model = session('model');
         $year = session('year');
-
         $data->category = $category->title;
         $data->type = $type->title;
         $data->model = $model->title;
@@ -96,8 +95,14 @@ class AdvertController extends Controller
         $data->price = $request->price;
         $data->trade = $request->trade;
         $data->save();
-
-
+        if ($request->file('image')){
+            foreach ($request->file('image') as $image){
+                $newimage = new Image();
+                $newimage->product_id = $data->id;
+                $newimage->image = $image->store('images');
+                $newimage->save();
+            }
+        }
         return redirect('/home');
 
     }

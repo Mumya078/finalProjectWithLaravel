@@ -32,17 +32,38 @@
                             <div class="col-md-7 productgallery">
                                 <div class="images">
                                     <div class="image-big">
-                                        <img id="imageBox" src="/assets/img/car.png">
+                                        @if($data)
+                                            @php
+                                                $firstImage = $images->where('product_id', $data->id)->first();
+                                            @endphp
+
+                                            @if($firstImage && $firstImage->image)
+                                                <img id="imageBox" src="/{{ $firstImage->image }}">
+                                            @else
+                                                <img src="/assets/img/car.png">
+                                            @endif
+                                        @endif
                                     </div>
                                     <div class="bottom">
                                         <div id="slider" class="images-small">
-                                            <img src="/assets/img/car.png" onclick="myFunction(this)">
-                                            <img src="/assets/img/facebook.png" onclick="myFunction(this)">
-                                            <img src="/assets/img/car.png" onclick="myFunction(this)">
-                                            <img src="/assets/img/car.png" onclick="myFunction(this)">
-                                            <img src="/assets/img/facebook.png" onclick="myFunction(this)">
-                                            <img src="/assets/img/facebook.png" onclick="myFunction(this)">
-                                            <img src="/assets/img/car.png" onclick="myFunction(this)">
+                                            @php
+                                                $foundImage = false;
+                                            @endphp
+
+                                            @foreach($images as $rs)
+                                                @if(($rs->product_id == $data->id) && ($rs->image != null))
+                                                    <img src="/{{ $rs->image }}" onclick="myFunction(this)">
+                                                    @php
+                                                        $foundImage = true;
+                                                    @endphp
+                                                @endif
+                                            @endforeach
+
+                                            @if(!$foundImage)
+                                                <img src="/assets/img/car.png">
+                                            @endif
+
+
                                         </div>
                                     </div>
                                 </div>

@@ -59,5 +59,6 @@ Route::post('/ilan-ver/adim3/store',[AdvertController::class,'adim3store'])->nam
 Route::get('/admin',[AdminPanelController::class,'index'])->name('admin');
 Route::get('/admin/category',[AdminPanelController::class,'category'])->name('category');
 Route::post('/admin/category/store',[AdminPanelController::class,'adminstorecategory'])->name('adminstorecategory');
+Route::get('/admin/category/delete/{id}',[AdminPanelController::class,'categorydelete'])->name('categorydelete');
 
 

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Image;
 use Illuminate\Http\Request;
 use App\Models\Category as Category;
 use App\Models\Products as Product;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -16,9 +18,11 @@ class HomeController extends Controller
     public function index(){
         $categorydata= Category::all();
         $productdata = Product::all();
+        $images = Image::all();
         return view("front.index",[
             'categorydata'=> $categorydata,
-            'productdata' => $productdata
+            'productdata' => $productdata,
+            'images' => $images,
         ]);
     }
 

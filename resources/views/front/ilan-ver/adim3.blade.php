@@ -49,6 +49,8 @@
                                     <option value="turkuaz">Turkuaz</option>
                                     <option value="sarı">Sarı</option>
                                 </select>
+                                <h6>Resim</h6>
+                                <input type="file" name="image[]" multiple accept='image/*'>
                                 <h6>Takas</h6>
                                 <select name="trade">
                                     <option>Seçiniz</option>

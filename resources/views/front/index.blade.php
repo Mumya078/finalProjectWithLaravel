@@ -17,13 +17,21 @@
                    <h5>Anasayfa Vitrini</h5>
                    <div class="content">
                        @foreach($productdata as $rs)
-                       <div class="d-flex">
-                           <a href="{{route('productdetail',['id'=>$rs->id])}}" class="item">
-                               <img src="{{$rs->image}}">
-                               <h4>{{$rs->title}}</h4>
-                           </a>
-                       </div>
+                           <div class="d-flex">
+                               <a href="{{ route('productdetail', ['id' => $rs->id]) }}" class="item">
+                                   @php
+                                       $productImage = $images->where('product_id', $rs->id)->first();
+                                   @endphp
+                                   @if($productImage && $productImage->image)
+                                       <img alt="Resim" src="/{{ $productImage->image }}">
+                                   @else
+                                       <img src="/assets/img/car.png" onclick="myFunction(this)">
+                                   @endif
+                                   <h4>{{ $rs->title }}</h4>
+                               </a>
+                           </div>
                        @endforeach
+
                    </div>
                </div>
             </div>
