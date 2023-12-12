@@ -33,9 +33,11 @@ class HomeController extends Controller
         Auth::logout();
         $categorydata= Category::all();
         $productdata = Product::all();
+        $images = Image::all();
         return view("front.index",[
             'categorydata'=> $categorydata,
-            'productdata' => $productdata
+            'productdata' => $productdata,
+            'images' => $images,
         ]);
     }
 }

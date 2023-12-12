@@ -18,10 +18,18 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="pages/gallery.html" class="nav-link">
-                        <i class="nav-icon far fa-image"></i>
+                    <a href="{{route('settings')}}" class="nav-link">
+                        <i class="nav-icon fa-solid fa-gear"></i>
                         <p>
-                            Gallery
+                            Settings
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('users')}}" class="nav-link">
+                        <i class="nav-icon fa-solid fa-user"></i>
+                        <p>
+                            Users
                         </p>
                     </a>
                 </li>

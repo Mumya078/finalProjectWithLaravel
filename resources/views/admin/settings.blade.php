@@ -23,7 +23,7 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                İndex
+                Settings
             </div>
             <!-- /.container-fluid -->
         </div>

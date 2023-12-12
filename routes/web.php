@@ -32,7 +32,7 @@ Route::get('/logout',[HomeController::class,'logout'])->name('logout');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');
-Route::get('/category',[CategoryController::class,'category'])->name('category');
+Route::get('/category/{title}',[CategoryController::class,'index'])->name('category');
 
 
 
@@ -60,5 +60,8 @@ Route::get('/admin',[AdminPanelController::class,'index'])->name('admin');
 Route::get('/admin/category',[AdminPanelController::class,'category'])->name('category');
 Route::post('/admin/category/store',[AdminPanelController::class,'adminstorecategory'])->name('adminstorecategory');
 Route::get('/admin/category/delete/{id}',[AdminPanelController::class,'categorydelete'])->name('categorydelete');
+Route::get('/admin/settings',[AdminPanelController::class,'settings'])->name('settings');
+Route::get('/admin/users',[AdminPanelController::class,'users'])->name('users');
+
 
 

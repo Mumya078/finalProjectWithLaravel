@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminPanelController extends Controller
@@ -40,5 +41,15 @@ class AdminPanelController extends Controller
         $category->delete();
 
         return redirect('/admin');
+    }
+
+    public function settings(){
+        return view('admin.settings');
+    }
+    public function users(){
+        $users = User::all();
+        return view('admin.users',[
+            'users'=>$users,
+        ]);
     }
 }

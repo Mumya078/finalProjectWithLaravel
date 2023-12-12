@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div class="col-md-5 productinfo">
-                                <h5>{{$data->price}}</h5>
+                                <h5>{{$data->price}} TL</h5>
                                 <h6>Karabük / Safranbolu / Emek </h6>
                                 <div class="d-flex">
                                     <ul>
@@ -95,19 +95,27 @@
                                         </li>
                                         <li>
                                             <strong>Renk</strong>
-                                            <span>{{$data->color}}</span>
+                                            <span>@if($data->color != null)
+                                                    {{$data->color}}
+                                                @else
+                                                      Bilinmiyor
+                                            @endif</span>
                                         </li>
                                         <li>
                                             <strong>Motor Gücü</strong>
-                                            <span>{{$data->HP}}</span>
+                                            <span>@if($data->HP != null)
+                                                    {{$data->HP}}
+                                                @else
+                                                    Bilinmiyor
+                                                @endif</span>
                                         </li>
                                         <li>
                                             <strong>KM</strong>
-                                            <span>{{$data->KM}}</span>
-                                        </li>
-                                        <li>
-                                            <strong>Durumu</strong>
-                                            <span>Satılık</span>
+                                            <span>@if($data->KM != null)
+                                                    {{$data->KM}}
+                                                @else
+                                                    Bilinmiyor
+                                                @endif</span>
                                         </li>
                                         <li>
                                             <strong>Türü</strong>
@@ -127,7 +135,7 @@
                         </div>
                         <div class="col-md-3 productseller">
                             <div>
-                                <h5>Yusuf Emir Tatlı</h5>
+                                <h5>Yusuf Emir</h5>
                                 <h6>Hesap Açma Tarihi: 29 Ekim 2023</h6>
                                 <div>
                                     <strong>Cep</strong>
@@ -147,9 +155,7 @@
                                 Açıklama
                             </div>
                             <div class="product-features-main" aria-labelledby="dropdownMenuButton">
-                                Burasu text yeri        Burasu text yeri
-                                Burasu text yeri
-                                Burasu text yeri     Burasu text yeri
+                                {{$data->desc}}
                             </div>
                         </div>
                     </div>

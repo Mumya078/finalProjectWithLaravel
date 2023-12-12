@@ -9,7 +9,7 @@
                     <div class="navbar-headers">
                         @if($rs->parent_id == 0)
                             <div style="background-color: {{$rs->color}}"><i style="color: white" class="fa-solid {{$rs->image}}"></i></div>
-                            <h4><a href="/category"> {{$rs->title}}</a>(1000)</h4>
+                            <h4><a href="/category/{{$rs->title}}"> {{$rs->title}}</a>(1000)</h4>
                         @endif
                     </div>
                     @if(count($rs->children))
