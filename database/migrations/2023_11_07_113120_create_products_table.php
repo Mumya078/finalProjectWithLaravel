@@ -20,12 +20,12 @@ return new class extends Migration
             $table->string('model')->nullable(); //session
             $table->string('type')->nullable(); //session
             $table->string('title')->nullable(); //form request
+            $table->string('form_element1')->nullable(); //form request
+            $table->string('form_element2')->nullable(); //form request
+            $table->string('form_element3')->nullable(); //form request
+            $table->string('form_element4')->nullable(); //form request
             $table->string('desc')->nullable(); //form request
-            $table->string('color')->nullable(); //form request
-            $table->integer('KM')->nullable(); //form request
-            $table->integer('HP')->nullable(); //form request
             $table->float('price')->nullable(); //form request
-            $table->boolean('trade')->nullable(); //form request
             $table->string('image')->nullable(); //image
             $table->string('adress')->nullable(); //user
             $table->timestamps();

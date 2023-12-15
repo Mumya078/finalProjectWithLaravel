@@ -86,48 +86,24 @@
                                             <span>{{$data->category}}</span>
                                         </li>
                                         <li>
-                                            <strong>Model</strong>
-                                            <span>{{$data->model}}</span>
-                                        </li>
-                                        <li>
-                                            <strong>Yıl</strong>
-                                            <span>{{$data->year}}</span>
-                                        </li>
-                                        <li>
-                                            <strong>Renk</strong>
-                                            <span>@if($data->color != null)
-                                                    {{$data->color}}
-                                                @else
-                                                      Bilinmiyor
-                                            @endif</span>
-                                        </li>
-                                        <li>
-                                            <strong>Motor Gücü</strong>
-                                            <span>@if($data->HP != null)
-                                                    {{$data->HP}}
-                                                @else
-                                                    Bilinmiyor
-                                                @endif</span>
-                                        </li>
-                                        <li>
-                                            <strong>KM</strong>
-                                            <span>@if($data->KM != null)
-                                                    {{$data->KM}}
-                                                @else
-                                                    Bilinmiyor
-                                                @endif</span>
-                                        </li>
-                                        <li>
                                             <strong>Türü</strong>
                                             <span>{{$data->type}}</span>
                                         </li>
                                         <li>
-                                            <strong>Takas</strong>
-                                            <span>@if($data->trade == true)
-                                                      Evet
-                                                @else
-                                                      Hayır
-                                            @endif</span>
+                                            <strong>Category Form Element 1 Gerekirse bütün categoryi çek if else ile uygununu yazdır</strong>
+                                            <span>{{$data->form_element1}}</span>
+                                        </li>
+                                        <li>
+                                            <strong>Form Element2</strong>
+                                            <span>{{$data->form_element2}}</span>
+                                        </li>
+                                        <li>
+                                            <strong>Form Element3</strong>
+                                            <span>{{$data->form_element3}}</span>
+                                        </li>
+                                        <li>
+                                            <strong>Form Element4</strong>
+                                            <span>{{$data->form_element4}}</span>
                                         </li>
                                     </ul>
                                 </div>

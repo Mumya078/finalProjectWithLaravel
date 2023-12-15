@@ -10,7 +10,9 @@
                 <div class="adim3-main">
                     <h5>Kategori</h5>
                     <div class="admin3-kategori-content">
-                        {{$cat->title}} / {{$type->title}} / {{$model->title}} / {{$year->title}}
+                        {{$cat->title}} @if(!isset($type->title) || empty($type->title)) @else / {{$type->title}} @endif
+                        @if(!isset($model->title) || empty($model->title)) @else/ {{$model->title}} @endif
+                        @if(!isset($year->title) || empty($year->title)) @else/ {{$year->title}} @endif
                     </div>
                 </div>
                 <div class="adim3-main">
@@ -35,28 +37,25 @@
                                 </div>
                             </div>
                             <div class="form-main">
-                                <h6>KM</h6>
-                                <input type="text" name="KM">
-                                <h6>HP</h6>
-                                <input type="text" name="HP">
-                                <h6>Renk</h6>
-                                <select name="color">
-                                    <option value="">Seçiniz</option>
-                                    <option value="kırmızı">Kırmızı</option>
-                                    <option value="mavi">Mavi</option>
-                                    <option value="gri">Gri</option>
-                                    <option value="bej">Bej</option>
-                                    <option value="turkuaz">Turkuaz</option>
-                                    <option value="sarı">Sarı</option>
-                                </select>
+                                @if($cat->form_element1 != null)
+                                    <h6>{{$cat->form_element1}}</h6>
+                                    <input type="text" name="form_element1">
+                                @endif
+                                @if($cat->form_element2 != null)
+                                        <h6>{{$cat->form_element2}}</h6>
+                                        <input type="text" name="form_element2">
+                                @endif
+                               @if($cat->form_element3 != null)
+                                        <h6>{{$cat->form_element3}}</h6>
+                                        <input type="text" name="form_element3">
+                               @endif
+                                @if($cat->form_element4 != null)
+                                        <h6>{{$cat->form_element4}}</h6>
+                                        <input type="text" name="form_element4">
+                                @endif
+
                                 <h6>Resim</h6>
                                 <input type="file" name="image[]" multiple accept='image/*'>
-                                <h6>Takas</h6>
-                                <select name="trade">
-                                    <option>Seçiniz</option>
-                                    <option value="{{true}}">Evet</option>
-                                    <option value="{{false}}">Hayır</option>
-                                </select>
                             </div>
                             <div class="devam">
                                 <button class="btn btn-primary" type="submit">

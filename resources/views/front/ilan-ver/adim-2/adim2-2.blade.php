@@ -16,7 +16,8 @@
                             <div class="adim1-content-inner">
                                 <div class="adim2-table" id="maincategory">
                                     <ul>
-                                        @foreach($allcat as $rs)
+                                        @php($found = false)
+                                    @foreach($allcat as $rs)
                                             @if($rs->parent_id == $selectedcat1->id)
                                                 <li>
                                                     <a href="/ilan-ver/adim2/{{$selectedcat1->id}}/{{$rs->id}}" onclick="">
@@ -40,7 +41,12 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                                <div class="adim2-table" id="year">
+                                @foreach($allcat as $rs)
+                                    @if($rs->parent_id == $selectedcat3->id)
+                                        @php($found = true)
+                                    @endif
+                                @endforeach
+                                <div class="adim2-table" id="year" @if(!$found) style="display: none" @endif>
                                     <ul>
                                         @foreach($allcat as $rs)
                                             @if($rs->parent_id == $selectedcat3->id)
@@ -54,6 +60,13 @@
                                     </ul>
                                 </div>
                             </div>
+                        @if(!$found)
+                            <div class="devam">
+                                <a href="/ilan-ver/adim3" class="btn btn-primary" type="submit">
+                                    Devam
+                                </a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

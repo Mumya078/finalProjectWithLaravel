@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('title');
             $table->string('color')->nullable();
             $table->string('image')->nullable();
+            $table->string('form_element1')->nullable();
+            $table->string('form_element2')->nullable();
+            $table->string('form_element3')->nullable();
+            $table->string('form_element4')->nullable();
             $table->timestamps();
         });
     }

@@ -30,6 +30,10 @@ class AdminPanelController extends Controller
         $data->parent_id = $request->parent;
         $data->color = $request->color;
         $data->image = $request->icon;
+        $data->form_element1 = $request->form_element1;
+        $data->form_element2 = $request->form_element2;
+        $data->form_element3 = $request->form_element3;
+        $data->form_element4 = $request->form_element4;
         $data->save();
 
 

@@ -12,6 +12,7 @@ class AdvertController extends Controller
 {
     public function adim1(){
         $categorydata= Category::all();
+        session()->forget(['cat','type','year','model']);
         return view("front.ilan-ver.adim1",[
             'categorydata' => $categorydata
         ]);
@@ -20,6 +21,7 @@ class AdvertController extends Controller
     public function adim2($id){
         $allcat=Category::all();
         $selectedcat1=Category::find($id);
+        session(['cat'=>$selectedcat1]);
         return view("front.ilan-ver.adim-2.adim2",[
             'selectedcat1' => $selectedcat1,
             'allcat'=>$allcat
@@ -29,6 +31,7 @@ class AdvertController extends Controller
         $allcat=Category::all();
         $selectedcat1=Category::find($id);
         $selectedcat2=Category::find($pid);
+        session(['type'=>$selectedcat2]);
         return view("front.ilan-ver.adim-2.adim2-1",[
             'selectedcat1' => $selectedcat1,
             'allcat'=>$allcat,
@@ -40,6 +43,7 @@ class AdvertController extends Controller
         $selectedcat1=Category::find($id);
         $selectedcat2=Category::find($pid);
         $selectedcat3=Category::find($sid);
+        session(['year'=>$selectedcat3]);
         return view("front.ilan-ver.adim-2.adim2-2",[
             'selectedcat1' => $selectedcat1,
             'allcat'=>$allcat,
@@ -53,7 +57,7 @@ class AdvertController extends Controller
         $selectedcat2=Category::find($pid);
         $selectedcat3=Category::find($sid);
         $selectedcat4=Category::find($fid);
-        session(['cat'=>$selectedcat1,'type'=>$selectedcat2,'year'=>$selectedcat3,'model'=>$selectedcat4]);
+        session(['model'=>$selectedcat4]);
         return view("front.ilan-ver.adim-2.adim2-3",[
             'selectedcat1' => $selectedcat1,
             'allcat'=>$allcat,
@@ -72,7 +76,7 @@ class AdvertController extends Controller
             'cat' => $cat,
             'type'=>$type,
             'year'=>$year,
-            'model'=>$model
+            'model'=>$model,
         ]);
     }
 
@@ -84,16 +88,17 @@ class AdvertController extends Controller
         $model = session('model');
         $year = session('year');
         $data->category = $category->title;
-        $data->type = $type->title;
-        $data->model = $model->title;
-        $data->year = $year->title;
+        $data->category_id = $category->id;
+        $data->type = $type ? $type->title:'Bilinmiyor';
+        $data->model = $model ? $model->title : 'Bilinmiyor';
+        $data->year =$year ? $year->title: 'Bilinmiyor';
+        $data->form_element1= $request->form_element1;
+        $data->form_element2= $request->form_element2;
+        $data->form_element3= $request->form_element3;
+        $data->form_element4= $request->form_element4;
         $data->title = $request->title;
         $data->desc = $request->desc;
-        $data->KM=$request->KM;
-        $data->HP = $request->HP;
-        $data->color = $request->color;
         $data->price = $request->price;
-        $data->trade = $request->trade;
         $data->save();
         if ($request->file('image')){
             foreach ($request->file('image') as $image){

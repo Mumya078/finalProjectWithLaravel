@@ -19,7 +19,7 @@
                         <div class="content-inner">
                             @foreach($productdata as  $rs)
                                 <div class="d-flex">
-                                    <a href="/productdetail" class="item">
+                                    <a href="/productdetail/{{$rs->id}}" class="item">
                                         @php
                                             $productImage = $images->where('product_id', $rs->id)->first();
                                         @endphp
