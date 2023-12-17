@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Category as Category;
 use App\Models\Image;
 use App\Models\Products;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdvertController extends Controller
 {
@@ -89,6 +91,7 @@ class AdvertController extends Controller
         $year = session('year');
         $data->category = $category->title;
         $data->category_id = $category->id;
+        $data->user_id = Auth::user()->id;
         $data->type = $type ? $type->title:'Bilinmiyor';
         $data->model = $model ? $model->title : 'Bilinmiyor';
         $data->year =$year ? $year->title: 'Bilinmiyor';

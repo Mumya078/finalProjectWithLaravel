@@ -68,9 +68,12 @@
                                     </div>
                                 </div>
                             </div>
+                            @php
+                                $user = \App\Models\User::find($data->user_id)
+                            @endphp
                             <div class="col-md-5 productinfo">
                                 <h5>{{$data->price}} TL</h5>
-                                <h6>Karabük / Safranbolu / Emek </h6>
+                                <h6>{{$user->adress}}</h6>
                                 <div class="d-flex">
                                     <ul>
                                         <li>
@@ -89,33 +92,44 @@
                                             <strong>Türü</strong>
                                             <span>{{$data->type}}</span>
                                         </li>
-                                        <li>
-                                            <strong>Category Form Element 1 Gerekirse bütün categoryi çek if else ile uygununu yazdır</strong>
-                                            <span>{{$data->form_element1}}</span>
-                                        </li>
-                                        <li>
-                                            <strong>Form Element2</strong>
-                                            <span>{{$data->form_element2}}</span>
-                                        </li>
-                                        <li>
-                                            <strong>Form Element3</strong>
-                                            <span>{{$data->form_element3}}</span>
-                                        </li>
-                                        <li>
-                                            <strong>Form Element4</strong>
-                                            <span>{{$data->form_element4}}</span>
-                                        </li>
+                                        @foreach($allcat as $rs)
+                                            @if($data->category_id == $rs->id && $rs->form_element1 != null)
+                                                <li>
+                                                    <strong>{{$rs->form_element1}}</strong>
+                                                    <span>{{$data->form_element1}}</span>
+                                                </li>
+                                            @endif
+                                            @if($data->category_id == $rs->id && $rs->form_element2 != null)
+                                                <li>
+                                                    <strong>{{$rs->form_element2}}</strong>
+                                                    <span>{{$data->form_element2}}</span>
+                                                </li>
+                                            @endif
+                                            @if($data->category_id == $rs->id && $rs->form_element3 != null)
+                                                <li>
+                                                    <strong>{{$rs->form_element3}}</strong>
+                                                    <span>{{$data->form_element3}}</span>
+                                                </li>
+                                            @endif
+                                            @if($data->category_id == $rs->id && $rs->form_element4 != null)
+                                                <li>
+                                                    <strong>{{$rs->form_element4}}</strong>
+                                                    <span>{{$data->form_element4}}</span>
+                                                </li>
+                                                @else
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 productseller">
                             <div>
-                                <h5>Yusuf Emir</h5>
-                                <h6>Hesap Açma Tarihi: 29 Ekim 2023</h6>
+                                <h5>{{$user->name}}</h5>
+                                <h6>Hesap Açma Tarihi :{{$user->created_at}}</h6>
                                 <div>
-                                    <strong>Cep</strong>
-                                    <span>0(542) 535 66 02</span>
+                                    <strong>Cep:</strong>
+                                    <span>+90 {{$user->telephone}}</span>
                                 </div>
                                 <a href="">Mesaj Gönder</a>
                             </div>
