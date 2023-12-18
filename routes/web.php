@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController as HomeController;
 use App\Http\Controllers\CategoryController as CategoryController;
 use App\Http\Controllers\ProductController as ProductController;
 use App\Http\Controllers\AdvertController as AdvertController;
+use App\Http\Controllers\UserController as UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,14 +31,17 @@ Auth::routes();
 Route::get('/login',[HomeController::class,'login'])->name('login');
 Route::get('/logout',[HomeController::class,'logout'])->name('logout');
 
+/********************************* PRODUCTS ROUTS *********************************************/
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');
 Route::get('/category/{title}',[CategoryController::class,'index'])->name('category');
 
+/********************************* USER ROUTS *********************************************/
+Route::get('/profile',[UserController::class,'profile'])->name('profile');
+Route::post('/profile/store',[UserController::class,'profile_store'])->name('profile_store');
 
 
 /********************************* ILAN VER ROUTS *********************************************/
-
 /********************************* ADIM 1 ROUTS ******************************************************/
 Route::get('/ilan-ver/adim1',[AdvertController::class,'adim1'])->name('adim1');
 
