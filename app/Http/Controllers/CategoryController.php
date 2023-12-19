@@ -20,13 +20,15 @@ class CategoryController extends Controller
 
         // Kategori bulunursa, bu kategorinin ürünlerini çek
         $productdata = $categorydata->isNotEmpty()
-            ? Products::where('category', $title)->get()
+            ? Products::where('category', $title)
+                ->orWhere('type', $title)
+                ->get()
             : collect(); // Eğer kategori bulunamazsa, boş bir koleksiyon kullan
 
         return view("front.category", [
             'categorydata' => $categorydata,
             'productdata' => $productdata,
-            'images'=>$images
+            'images' => $images
         ]);
     }
 

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('form_element3')->nullable(); //form request
             $table->string('form_element4')->nullable(); //form request
             $table->string('desc')->nullable(); //form request
-            $table->float('price')->nullable(); //form request
+            $table->bigInteger('price')->nullable(); //form request
             $table->string('image')->nullable(); //image
             $table->string('adress')->nullable(); //user
             $table->timestamps();

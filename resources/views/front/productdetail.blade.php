@@ -4,14 +4,18 @@
 @extends("layouts.front.frontbase")
 
 @section("content")
+
     <div class="container">
         <div class="row">
             <div class="main">
                 <div class="content d-flex">
                     <div class="content-header justify-content-between">
                         <h4>{{$data->title}}</h4>
+                        @php
+                            $user = \App\Models\User::find($data->user_id)
+                        @endphp
                         <div class="d-flex justify-content-between">
-                            <a  href="javascript:void(0)">
+                            <a  href="/productdetail/{{$data->id}}/toggleFavorite">
                                 <i @class(['fa-solid','fa-sm','fa-star']) style="margin-right: 5px"></i>Favorilerime Ekle
                             </a>
                             <div class="socialmedia">
@@ -68,9 +72,6 @@
                                     </div>
                                 </div>
                             </div>
-                            @php
-                                $user = \App\Models\User::find($data->user_id)
-                            @endphp
                             <div class="col-md-5 productinfo">
                                 <h5>{{$data->price}} TL</h5>
                                 <h6>{{$user->adress}}</h6>

@@ -19,8 +19,9 @@
                         {{\Illuminate\Support\Facades\Auth::user()->name}}
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profil</a></li>
-                        <li><a class="dropdown-item" href="#">İlanlarım</a></li>
+                        <li><a class="dropdown-item" href="{{route('profile')}}">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{route('myads')}}">İlanlarım</a></li>
+                        <li><a class="dropdown-item" href="#">Favorilerim</a></li>
                         <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
                     </ul>
                 </div>

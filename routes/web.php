@@ -34,11 +34,13 @@ Route::get('/logout',[HomeController::class,'logout'])->name('logout');
 /********************************* PRODUCTS ROUTS *********************************************/
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');
+Route::get('/productdetail/{id}/toggleFavorite', [ProductController::class, 'toggleFavorite'])->name('toggleFavorite');
 Route::get('/category/{title}',[CategoryController::class,'index'])->name('category');
 
 /********************************* USER ROUTS *********************************************/
 Route::get('/profile',[UserController::class,'profile'])->name('profile');
 Route::post('/profile/store',[UserController::class,'profile_store'])->name('profile_store');
+Route::get('/ilanlarim',[UserController::class,'myads'])->name('myads');
 
 
 /********************************* ILAN VER ROUTS *********************************************/
