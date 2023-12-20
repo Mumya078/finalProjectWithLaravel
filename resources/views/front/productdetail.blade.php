@@ -16,7 +16,11 @@
                         @endphp
                         <div class="d-flex justify-content-between">
                             <a  href="/productdetail/{{$data->id}}/toggleFavorite">
-                                <i @class(['fa-solid','fa-sm','fa-star']) style="margin-right: 5px"></i>Favorilerime Ekle
+                                @if($isAlreadyFavorited == false)
+                                    <i @class(['fa-regular','fa-sm','fa-star']) style="margin-right: 5px"></i>Favorilerime Ekle
+                                @else
+                                    <i @class(['fa-solid','fa-sm','fa-star']) style="margin-right: 5px"></i>Favorilerimden Çıkar
+                                @endif
                             </a>
                             <div class="socialmedia">
                                 <a href="javascript:void(0)">

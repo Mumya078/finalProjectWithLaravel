@@ -41,6 +41,7 @@ Route::get('/category/{title}',[CategoryController::class,'index'])->name('categ
 Route::get('/profile',[UserController::class,'profile'])->name('profile');
 Route::post('/profile/store',[UserController::class,'profile_store'])->name('profile_store');
 Route::get('/ilanlarim',[UserController::class,'myads'])->name('myads');
+Route::get('/favorites',[UserController::class,'favorites'])->name('favorites');
 
 
 /********************************* ILAN VER ROUTS *********************************************/

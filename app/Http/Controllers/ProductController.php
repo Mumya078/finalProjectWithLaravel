@@ -16,6 +16,10 @@ class ProductController extends Controller
         $data = Product::with('category')->find($id);
         $images = Image::all();
         $allcat = Category::all();
+        // Kullanıcının bu ürünü favorilere eklenmiş mi kontrol et
+        $isAlreadyFavorited = Favorites::where('user_id', Auth::user()->id)
+            ->where('product_id', $data->id)
+            ->exists();
         $prod = [
             'category' => $data->category,  // Dize olarak alınacaksa
             'form_element1' => $data->form_element1,  // Dize olarak alınacaksa
@@ -24,7 +28,8 @@ class ProductController extends Controller
             'data'=>$data,
             'images'=>$images,
             'prod'=>$prod,
-            'allcat'=>$allcat
+            'allcat'=>$allcat,
+            'isAlreadyFavorited'=>$isAlreadyFavorited
         ]);
     }
 
