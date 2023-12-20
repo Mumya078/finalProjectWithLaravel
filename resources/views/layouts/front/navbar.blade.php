@@ -1,5 +1,7 @@
 @php
-    $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
+    $mainCategories = \App\Http\Controllers\HomeController::maincategorylist();
+    $allprod = \App\Models\Products::all();
+    $count =0;
 @endphp
 <div class="navbar-main">
     <ul>
@@ -9,7 +11,15 @@
                     <div class="navbar-headers">
                         @if($rs->parent_id == 0)
                             <div style="background-color: {{$rs->color}}"><i style="color: white" class="fa-solid {{$rs->image}}"></i></div>
-                            <h4><a href="/category/{{$rs->title}}"> {{$rs->title}}</a>(1000)</h4>
+                            <h4><a href="/category/{{$rs->title}}"> {{$rs->title}}</a>@foreach($allprod as $pr)
+                                    @php
+                                    if ($pr->category == $rs->title){
+                                        $count++;
+                                    }
+                                @endphp
+                                @endforeach
+                                {{$count}}
+                            </h4>
                         @endif
                     </div>
                     @if(count($rs->children))
@@ -17,6 +27,9 @@
                     @endif
                 </ul>
             </li>
+            @php
+            $count = 0;
+            @endphp
         @endforeach
     </ul>
 </div>
