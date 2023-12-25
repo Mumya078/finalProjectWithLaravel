@@ -30,6 +30,7 @@ Route::get('/anasayfa',[HomeController::class, "index"]);
 Auth::routes();
 Route::get('/login',[HomeController::class,'login'])->name('login');
 Route::get('/logout',[HomeController::class,'logout'])->name('logout');
+Route::get('/search',[HomeController::class,'search'])->name('search');
 
 /********************************* PRODUCTS ROUTS *********************************************/
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -58,6 +59,9 @@ Route::post('/ilan-ver/adim2/{id}/{pid}/{sid}/{fid}/store',[AdvertController::cl
 /************************************** ADIM3 ROUTS ****************************************************/
 Route::get('/ilan-ver/adim3',[AdvertController::class,'adim3'])->name('adim3');
 Route::post('/ilan-ver/adim3/store',[AdvertController::class,'adim3store'])->name('adim3store');
+Route::get('/ilan-ver/adim3/edit/{id}',[AdvertController::class,'adim3edit'])->name('adim3edit');
+Route::post('/ilan-ver/adim3/edit/{id}/store',[AdvertController::class,'editstore'])->name('editstore');
+
 
 
 

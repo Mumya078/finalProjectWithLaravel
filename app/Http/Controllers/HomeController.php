@@ -40,4 +40,19 @@ class HomeController extends Controller
             'images' => $images,
         ]);
     }
+
+    public function search(Request $request){
+        $query = $request->input('query');
+        $images = Image::all();
+
+        // Product modelinde arama yap
+        $results = Product::where('title', 'like', '%' . $query . '%')
+            ->orWhere('desc', 'like', '%' . $query . '%')
+            ->orWhere('category', 'like', '%' . $query . '%')
+            ->orWhere('year', 'like', '%' . $query . '%')
+            ->orWhere('type', 'like', '%' . $query . '%')
+            ->get();
+
+        return view('front.search', ['results' => $results, 'query' => $query,'images'=>$images]);
+    }
 }

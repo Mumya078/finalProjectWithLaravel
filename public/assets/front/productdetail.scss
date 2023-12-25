@@ -258,3 +258,15 @@
     padding-bottom: 10px;
     height: 500px;
 }
+.edit{
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 100%;
+    height: 50px;
+    >div{
+        width: 80px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

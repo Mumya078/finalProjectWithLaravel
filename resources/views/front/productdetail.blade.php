@@ -155,6 +155,12 @@
                         </div>
                     </div>
                 </div>
+                @if(\Illuminate\Support\Facades\Auth::check() && $data->user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                    <div class="edit">
+                        <a href="{{route('adim3edit',$data->id)}}"><div class="btn btn-warning">Düzenle</div></a>
+                        <div class="btn btn-danger">Sil</div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>

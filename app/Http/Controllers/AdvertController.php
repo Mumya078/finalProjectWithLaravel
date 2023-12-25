@@ -114,6 +114,41 @@ class AdvertController extends Controller
         return redirect('/home');
 
     }
+    public function adim3edit($id){
+        $data= Products::find($id);
+        return view("front.ilan-ver.adim3edit",[
+            'data'=>$data,
+        ]);
+    }
+    public function editstore(Request $request, $id){
+        $data = Products::find($id);
+        // Sadece değişecek alanları güncelle
+        $data->form_element1 = $request->form_element1;
+        $data->form_element2 = $request->form_element2;
+        $data->form_element3 = $request->form_element3;
+        $data->form_element4 = $request->form_element4;
+        $data->title = $request->title;
+        $data->desc = $request->desc;
+        $data->price = $request->price;
 
+        // Değişiklikleri kaydet
+        $data->save();
 
+        // Eğer yeni resimler yüklenmişse, eski resimleri sil ve yeni resimleri kaydet
+        if ($request->file('image')){
+            // Eski resimleri sil
+            Image::where('product_id', $data->id)->delete();
+
+            // Yeni resimleri kaydet
+            foreach ($request->file('image') as $image){
+                $newimage = new Image();
+                $newimage->product_id = $data->id;
+                $newimage->image = $image->store('images');
+                $newimage->save();
+            }
+        }
+
+        // Ana sayfaya yönlendir
+        return redirect('/home');
+    }
 }
