@@ -136,7 +136,7 @@
                                     <strong>Cep:</strong>
                                     <span>+90 {{$user->telephone}}</span>
                                 </div>
-                                <a href="">Mesaj Gönder</a>
+                                <a href="/productdetail/{{$data->id}}/chat">Mesaj Gönder</a>
                             </div>
                         </div>
                     </div>

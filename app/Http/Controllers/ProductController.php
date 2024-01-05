@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Favorites;
 use App\Models\Image;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Products as Product;
 use Illuminate\Support\Facades\Auth;
@@ -65,5 +66,32 @@ class ProductController extends Controller
 
         return redirect("/productdetail/{$data->id}");
     }
+
+    public function sendmessage($id) {
+        // Belirli bir ürünü bul
+        $product = Product::find($id);
+
+        // Eğer ürün bulunamazsa, isteğe bağlı olarak bir hata mesajı döndürebilirsiniz
+        if (!$product) {
+            return abort(404); // veya başka bir hata sayfasına yönlendirme yapabilirsiniz
+        }
+
+        // Ürünün sahibinin kullanıcı ID'sini al
+        $user_id = $product->user_id;
+
+        // Kullanıcıyı bul
+        $user = User::find($user_id);
+
+        // Eğer kullanıcı bulunamazsa, isteğe bağlı olarak bir hata mesajı döndürebilirsiniz
+        if (!$user) {
+            return abort(404); // veya başka bir hata sayfasına yönlendirme yapabilirsiniz
+        }
+
+        return view('front.chat', [
+            'user' => $user,
+            'product' => $product,
+        ]);
+    }
+
 
 }

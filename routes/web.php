@@ -35,6 +35,7 @@ Route::get('/search',[HomeController::class,'search'])->name('search');
 /********************************* PRODUCTS ROUTS *********************************************/
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');
+Route::get('/productdetail/{id}/chat', [ProductController::class, 'sendmessage'])->name('send_message');
 Route::get('/productdetail/{id}/toggleFavorite', [ProductController::class, 'toggleFavorite'])->name('toggleFavorite');
 Route::get('/category/{title}',[CategoryController::class,'index'])->name('category');
 
@@ -43,7 +44,7 @@ Route::get('/profile',[UserController::class,'profile'])->name('profile');
 Route::post('/profile/store',[UserController::class,'profile_store'])->name('profile_store');
 Route::get('/ilanlarim',[UserController::class,'myads'])->name('myads');
 Route::get('/favorites',[UserController::class,'favorites'])->name('favorites');
-
+Route::get('/messages',[UserController::class,'messages'])->name('messages');
 
 /********************************* ILAN VER ROUTS *********************************************/
 /********************************* ADIM 1 ROUTS ******************************************************/

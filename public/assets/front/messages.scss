@@ -1,0 +1,147 @@
+.main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.content{
+    display: flex;
+    place-items: center;
+    width: 1000px;
+    height: auto;
+    margin-bottom: 50px;
+    flex-direction: column;
+    >h5{
+        font-size: 24px;
+        font-weight: 700;
+        margin: 15px;
+    }
+}
+.outer{
+
+}
+.message-list{
+    flex-direction: column;
+    background-color: green;
+    display: flex;
+    width: 100%;
+    outline: 2px solid grey;
+    border-radius: 5px;
+    max-height: 450px; /* Değiştirebileceğiniz maksimum yükseklik değeri */
+    overflow-y: auto;
+    padding: 10px 5px 10px 5px;
+    >div{
+        display: flex;
+        height: 80px;
+        min-height: 80px;
+        width: 100%;
+        background-color: #7bb5f4;
+        margin-bottom: 5px;
+    }
+}
+/* width */
+.message-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+.message-list::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+.message-list::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.message-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.chat{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 5px;
+    max-height: 450px; /* Değiştirebileceğiniz maksimum yükseklik değeri */
+    overflow-y: auto;
+    background-color: whitesmoke;
+}
+/* width */
+.chat::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+.chat::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+.chat::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+.chat::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.chatbox{
+    display: flex;
+    margin-bottom: 5px;
+    background-color: greenyellow;
+    width: 100%;
+    height: 50px;
+    min-height: 50px;
+}
+
+.chat-header{
+    width: 100%;
+    height: 75px;
+    background-color: whitesmoke;
+    padding: 5px 10px;
+    display: flex;
+    place-items: center;
+    border-bottom: 1px solid grey;
+
+    >h5{
+        display: flex;
+        font-size: 26px;
+        font-weight: 600;
+    }
+    >label{
+        margin-left: 20px;
+        padding: 2px;
+        border-radius: 10px;
+        background-color: grey;
+        font-size: 18px;
+        font-weight: 500;
+        color: white;
+    }
+}
+
+.chatinput{
+    width: 100%;
+    background-color: whitesmoke;
+    display: flex;
+    height: 55px;
+    padding: 5px 10px;
+    border-top: 1px solid grey;
+    >form{
+        >input{
+            margin-top: 4px;
+            width: 850px;
+            height: 38px;
+            border-radius: 5px;
+            border: 1px solid grey !important;
+        }
+        >input:focus{
+            outline: none;
+            border: 2px solid black !important;
+
+        }
+    }
+}

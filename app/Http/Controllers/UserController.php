@@ -56,5 +56,8 @@ class UserController extends Controller
         ]);
     }
 
+    public function messages(){
+       return view('front.messages');
+    }
 
 }

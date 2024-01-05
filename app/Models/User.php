@@ -47,4 +47,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Products::class, 'favorites', 'user_id', 'product_id');
     }
+
+    public function sentMessages()
+    {
+        return $this->hasMany(Messages::class, 'from_user_id');
+    }
+
+    public function receivedMessages()
+    {
+        return $this->hasMany(Messages::class, 'to_user_id');
+    }
 }
