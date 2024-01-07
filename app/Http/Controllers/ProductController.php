@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Favorites;
 use App\Models\Image;
+use App\Models\Messages;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Products as Product;
@@ -68,6 +69,14 @@ class ProductController extends Controller
     }
 
     public function sendmessage($id) {
+        $auth_id = Auth::user()->id;
+        // Kullanıcının gönderdiği veya aldığı tüm mesajları çek
+        $messages = Messages::where('from_user_id', $auth_id)
+            ->orWhere('to_user_id', $auth_id)
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        $images = Image::all();
         // Belirli bir ürünü bul
         $product = Product::find($id);
 
@@ -90,6 +99,8 @@ class ProductController extends Controller
         return view('front.chat', [
             'user' => $user,
             'product' => $product,
+            'images'=>$images,
+            'messages'=>$messages
         ]);
     }
 

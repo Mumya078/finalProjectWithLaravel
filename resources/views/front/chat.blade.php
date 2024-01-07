@@ -13,41 +13,46 @@
                 <div class="chat-header">
                     <h5>{{$user->name}}</h5>
                     <label>+90({{$user->telephone}})</label>
+                    <div class="chat-product-header">
+                        <div>
+                            @php
+                                $productImage = $images->where('product_id', $product->id)->first();
+                            @endphp
+                            @if($productImage && $productImage->image)
+                                <img alt="Resim" src="/{{ $productImage->image }}">
+                            @else
+                                <img src="/assets/img/car.png" onclick="myFunction(this)">
+                            @endif
+                            <div>
+                                <h5>{{$product->title}}</h5>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="chat">
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
-                    <div class="chatbox">
-                        sa
-                    </div>
+                    @foreach($messages as $rs)
+                        @if($rs->from_user_id  == \Illuminate\Support\Facades\Auth::user()->id && $rs->to_user_id ==$product->user_id ||
+                             $rs->to_user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                            @if($rs->product_id == $product->id)
+                                @if($rs->from_user_id == Auth::user()->id)
+                                    <div class="chatbox-send">
+                                        {{$rs->content}}
+                                    </div>
+                                @elseif($rs->to_user_id == Auth::user()->id)
+                                    <div class="chatbox-recive">
+                                        {{$rs->content}}
+                                    </div>
+                                @endif
+                            @endif
+                        @endif
+                    @endforeach
+
                 </div>
                 <div class="chatinput">
-                   <form>
+                   <form action="/productdetail/{{$product->id}}/chat/newmessage" method="post">
                        @csrf
-                       <input type="text" placeholder="Mesajınızı Buraya Giriniz">
-                       <button class="btn btn-primary" style="margin-bottom: 5px;width: 125px">Gönder</button>
+                       <input type="text" placeholder="Mesajınızı Buraya Giriniz" name="contents">
+                       <button type="submit" class="btn btn-primary" style="margin-bottom: 5px;width: 125px">Gönder</button>
                    </form>
                 </div>
             </div>
