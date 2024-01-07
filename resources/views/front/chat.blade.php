@@ -30,22 +30,7 @@
                     </div>
                 </div>
                 <div class="chat">
-                    @foreach($messages as $rs)
-                        @if($rs->from_user_id  == \Illuminate\Support\Facades\Auth::user()->id && $rs->to_user_id ==$product->user_id ||
-                             $rs->to_user_id == \Illuminate\Support\Facades\Auth::user()->id)
-                            @if($rs->product_id == $product->id)
-                                @if($rs->from_user_id == Auth::user()->id)
-                                    <div class="chatbox-send">
-                                        {{$rs->content}}
-                                    </div>
-                                @elseif($rs->to_user_id == Auth::user()->id)
-                                    <div class="chatbox-recive">
-                                        {{$rs->content}}
-                                    </div>
-                                @endif
-                            @endif
-                        @endif
-                    @endforeach
+
 
                 </div>
                 <div class="chatinput">
@@ -60,3 +45,4 @@
     </div>
 </div>
 @endsection
+

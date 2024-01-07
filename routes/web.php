@@ -35,7 +35,7 @@ Route::get('/search',[HomeController::class,'search'])->name('search');
 /********************************* PRODUCTS ROUTS *********************************************/
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');
-Route::get('/productdetail/{id}/chat', [ProductController::class, 'sendmessage'])->name('send_message');
+Route::get('/productdetail/{id}/chat', [ProductController::class, 'chat'])->name('chat');
 Route::post('/productdetail/{id}/chat/newmessage', [\App\Http\Controllers\MessageController::class, 'newmes'])->name('newmes');
 Route::get('/productdetail/{id}/toggleFavorite', [ProductController::class, 'toggleFavorite'])->name('toggleFavorite');
 Route::get('/category/{title}',[CategoryController::class,'index'])->name('category');

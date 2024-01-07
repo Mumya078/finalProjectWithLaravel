@@ -11,6 +11,10 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Products as Product;
 use Illuminate\Support\Facades\Auth;
+use function Symfony\Component\String\b;
+use function Webmozart\Assert\Tests\StaticAnalysis\inArray;
+use Webmozart\Assert\Assert;
+
 
 class ProductController extends Controller
 {
@@ -68,40 +72,44 @@ class ProductController extends Controller
         return redirect("/productdetail/{$data->id}");
     }
 
-    public function sendmessage($id) {
-        $auth_id = Auth::user()->id;
-        // Kullanıcının gönderdiği veya aldığı tüm mesajları çek
-        $messages = Messages::where('from_user_id', $auth_id)
-            ->orWhere('to_user_id', $auth_id)
-            ->orderBy('created_at', 'asc')
-            ->get();
-
+    public function chat($id) {
         $images = Image::all();
         // Belirli bir ürünü bul
         $product = Product::find($id);
-
-        // Eğer ürün bulunamazsa, isteğe bağlı olarak bir hata mesajı döndürebilirsiniz
-        if (!$product) {
-            return abort(404); // veya başka bir hata sayfasına yönlendirme yapabilirsiniz
-        }
-
         // Ürünün sahibinin kullanıcı ID'sini al
         $user_id = $product->user_id;
-
         // Kullanıcıyı bul
         $user = User::find($user_id);
+        // Kullanıcının gönderdiği veya aldığı tüm mesajları çek
+        $messages = Messages::where('from_user_id', Auth::user()->id)
+            ->orWhere('to_user_id', Auth::user()->id)
+            ->orderBy('created_at', 'asc')
+            ->get();
 
-        // Eğer kullanıcı bulunamazsa, isteğe bağlı olarak bir hata mesajı döndürebilirsiniz
-        if (!$user) {
-            return abort(404); // veya başka bir hata sayfasına yönlendirme yapabilirsiniz
+        if ($this->checkProductInMessages($id)){
+            $data = new Messages();
+            $data->from_user_id = Auth::user()->id;
+            $data->to_user_id = $user_id;
+            $data->product_id = $id;
+            $data->save();
         }
 
         return view('front.chat', [
             'user' => $user,
             'product' => $product,
             'images'=>$images,
-            'messages'=>$messages
         ]);
+    }
+    public function checkProductInMessages($id)
+    {
+        $hasMatchingProduct = Messages::where(function ($query) use ($id) {
+            $query->where('from_user_id', Auth::user()->id)
+                ->orWhere('to_user_id', Auth::user()->id);
+        })
+            ->where('product_id', $id)
+            ->exists();
+
+        return !$hasMatchingProduct;
     }
 
 

@@ -5,8 +5,7 @@
 @extends("layouts.front.frontbase")
 
 @section("content")
-<div class="container" style="margin-top: 30px">
-    <div class="row">
+<div style="margin-top: 30px">
         <div class="main">
             <div class="content">
                 <h5>Kişisel Bilgilerim</h5>
@@ -35,6 +34,5 @@
                     </div>
             </form>
         </div>
-    </div>
 </div>
 @endsection

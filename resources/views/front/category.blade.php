@@ -3,7 +3,7 @@
 @extends("layouts.front.frontbase")
 
 @section("content")
-    <div class="container" style="margin-top: 10px">
+    <div class="container" style="margin-top: 10px;margin-bottom: 85px">
         <div class="row">
             <div class="main d-flex">
                 <div class="d-flex col-md-3">
