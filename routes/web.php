@@ -35,8 +35,7 @@ Route::get('/search',[HomeController::class,'search'])->name('search');
 /********************************* PRODUCTS ROUTS *********************************************/
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/productdetail/{id}', [ProductController::class, 'productdetail'])->name('productdetail');
-Route::get('/productdetail/{id}/chat', [ProductController::class, 'chat'])->name('chat');
-Route::post('/productdetail/{id}/chat/newmessage', [\App\Http\Controllers\MessageController::class, 'newmes'])->name('newmes');
+Route::get('/productdetail/{id}/chat', [ProductController::class, 'createchat'])->name('createchat');
 Route::get('/productdetail/{id}/toggleFavorite', [ProductController::class, 'toggleFavorite'])->name('toggleFavorite');
 Route::get('/category/{title}',[CategoryController::class,'index'])->name('category');
 
@@ -46,6 +45,8 @@ Route::post('/profile/store',[UserController::class,'profile_store'])->name('pro
 Route::get('/ilanlarim',[UserController::class,'myads'])->name('myads');
 Route::get('/favorites',[UserController::class,'favorites'])->name('favorites');
 Route::get('/messages',[UserController::class,'messages'])->name('messages');
+Route::get('/chat/{id}',[\App\Http\Controllers\MessageController::class,'msg'])->name('msg');
+Route::post('/chat/{id}/newmessage', [\App\Http\Controllers\MessageController::class, 'newmes'])->name('newmes');
 
 /********************************* ILAN VER ROUTS *********************************************/
 /********************************* ADIM 1 ROUTS ******************************************************/

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Chat;
 use App\Models\Favorites;
 use App\Models\Image;
 use App\Models\Messages;
@@ -22,6 +23,7 @@ class ProductController extends Controller
         $data = Product::with('category')->find($id);
         $images = Image::all();
         $allcat = Category::all();
+
 
         $isAlreadyFavorited = false; // Varsayılan olarak false olarak ayarla
 
@@ -42,7 +44,7 @@ class ProductController extends Controller
             'images'=>$images,
             'prod'=>$prod,
             'allcat'=>$allcat,
-            'isAlreadyFavorited'=>$isAlreadyFavorited
+            'isAlreadyFavorited'=>$isAlreadyFavorited,
         ]);
     }
 
@@ -72,7 +74,7 @@ class ProductController extends Controller
         return redirect("/productdetail/{$data->id}");
     }
 
-    public function chat($id) {
+    public function createchat($id) {
         $images = Image::all();
         // Belirli bir ürünü bul
         $product = Product::find($id);
@@ -80,11 +82,7 @@ class ProductController extends Controller
         $user_id = $product->user_id;
         // Kullanıcıyı bul
         $user = User::find($user_id);
-        // Kullanıcının gönderdiği veya aldığı tüm mesajları çek
-        $messages = Messages::where('from_user_id', Auth::user()->id)
-            ->orWhere('to_user_id', Auth::user()->id)
-            ->orderBy('created_at', 'asc')
-            ->get();
+
 
         if ($this->checkProductInMessages($id)){
             $data = new Messages();
@@ -94,11 +92,9 @@ class ProductController extends Controller
             $data->save();
         }
 
-        return view('front.chat', [
-            'user' => $user,
-            'product' => $product,
-            'images'=>$images,
-        ]);
+
+
+        return redirect('/messages');
     }
     public function checkProductInMessages($id)
     {

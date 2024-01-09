@@ -20,6 +20,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('profile')}}">Profil</a></li>
+                        <li><a class="dropdown-item" href="/messages">Mesajlarım</a></li>
                         <li><a class="dropdown-item" href="{{route('myads')}}">İlanlarım</a></li>
                         <li><a class="dropdown-item" href="{{route('favorites')}}">Favorilerim</a></li>
                         <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>

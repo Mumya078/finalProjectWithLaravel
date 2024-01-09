@@ -30,11 +30,20 @@
                     </div>
                 </div>
                 <div class="chat">
-
-
+                    @foreach($chats as $rs)
+                            @if($rs->from_user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                            <div class="chatbox-send">
+                                {{$rs->content}}
+                            </div>
+                            @else
+                            <div class="chatbox-recive">
+                                {{$rs->content}}
+                            </div>
+                            @endif
+                    @endforeach
                 </div>
                 <div class="chatinput">
-                   <form action="/productdetail/{{$product->id}}/chat/newmessage" method="post">
+                   <form action="/chat/{{$id}}/newmessage" method="post">
                        @csrf
                        <input type="text" placeholder="Mesajınızı Buraya Giriniz" name="contents">
                        <button type="submit" class="btn btn-primary" style="margin-bottom: 5px;width: 125px">Gönder</button>

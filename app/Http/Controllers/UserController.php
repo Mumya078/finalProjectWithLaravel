@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Favorites;
 use App\Models\Image;
+use App\Models\Messages;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +58,18 @@ class UserController extends Controller
     }
 
     public function messages(){
-       return view('front.messages');
+        $images = Image::all();
+
+        $messages = Messages::where('from_user_id',Auth::user()->id)
+            ->orWhere('to_user_id',Auth::user()->id)
+            ->get();
+
+
+       return view('front.messages',[
+           'messages'=>$messages,
+           'images'=>$images
+
+       ]);
     }
 
 }

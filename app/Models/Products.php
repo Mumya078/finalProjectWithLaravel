@@ -21,4 +21,9 @@ class Products extends Model
     {
         return $this->hasMany(Favorites::class, 'product_id');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Messages::class, 'product_id');
+    }
 }

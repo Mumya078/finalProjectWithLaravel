@@ -15,6 +15,11 @@ class Messages extends Model
         return $this->belongsTo(User::class, 'from_user_id');
     }
 
+    public function product()
+    {
+        return $this->belongsTo(Products::class, 'product_id');
+    }
+
     public function receiver()
     {
         return $this->belongsTo(User::class, 'to_user_id');

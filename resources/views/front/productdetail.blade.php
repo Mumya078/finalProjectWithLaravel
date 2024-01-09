@@ -136,7 +136,11 @@
                                     <strong>Cep:</strong>
                                     <span>+90 {{$user->telephone}}</span>
                                 </div>
-                                <a href="/productdetail/{{$data->id}}/chat">Mesaj Gönder</a>
+                                @if(\Illuminate\Support\Facades\Auth::check())
+                                    <a href="/productdetail/{{$data->id}}/chat">Mesaj Gönder</a>
+                                @else
+                                    <a href="/login">Mesaj Gönder</a>
+                                @endif
                             </div>
                         </div>
                     </div>
